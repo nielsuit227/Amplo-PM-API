@@ -7,7 +7,7 @@ Here you find all information necessary to upload data and request predictions/i
 Note that in order for your API's to be online, you need to have completed the steps from https://www.amplo.ch/products/.
 Upon signing the SaaS Agreement, you are provided a `project_id`, `location` and `registry` as well as a fixed number of `private_key`, `device_id` combinations. 
 
-# Retreiving Predictions
+# Retreiving Predictions / Indicators
 To aqcuire prediction/indicator results, you send an `https` post with a provided `API Key`.
 ```
 curl -X POST https://api.amplo.ch/pm/retreive \
