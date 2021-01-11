@@ -5,11 +5,29 @@
 Welcome to the official documentation of the Amplo PM API. 
 Here you find all information necessary to upload data and request predictions/indicators. 
 Note that in order for your API's to be online, you need to have completed the steps from https://www.amplo.ch/products/.
+Upon signing the SaaS Agreement, you are provided a `project_id`, `location` and `registry` as well as a fixed number of `private_key`, `device_id` combinations. 
 
 
-## Sending Data
-Your devices or server can send data over a simple http post, encrypted by a JSON Web Token (JWT), unique for every message. 
-To create the token, you need your `project_id` and your devices `private_key`. 
+# Sending Data
+Your devices or server can send data over a simple `https` posts. 
+```
+curl -X POST https://cloudiotdevice.googleapis.com/v1/projects/{{project_id}}/locations/{{location}}/registries/{{registry}}/devices/{{device_id}}:publishEvent \
+    --header "authorization: Bearer {{jwt_token}}" \
+    --header "content-type: application/json" \
+    --header "cache-control: no-cache" \
+    --data "{'binary_data': {{msg_bytes}}}
+```
+Parameter | Description
+--- | ---
+`project_id` | Your uniquely provided Project ID
+`location` | The location of your cloud processing
+`registry` | Device registry, necessary if multiple different devices
+`device_id` | The devices unique ID
+`jwt_token` | JSON Web Token, as explained below
+`msg_bytes` | The data which needs to be send, in bytes
+To create the token, you need your `project_id` and your device's `private_key`. 
+
+## JSON Web Token
 
 ### Python
 `pip install jwt`
@@ -167,3 +185,5 @@ const createJwt = (projectId, privateKeyFile) => {
 };
 ```
 
+## HTTP Post
+Now you can make an HTTP Post 
