@@ -29,8 +29,10 @@ Parameter | Description
 To create the token, you need your `project_id` and your device's `private_key`. 
 
 ## Message Encoding
+All the send data needs to be Avro encoded. The data scheme is defined before deployment. 
 
 ## JSON Web Token
+All communication is authorized via a JSON Web Token. Each message has its own JWT, based upon the `device_id`, `private_key` and `timestamp`. For Python, Java, C++ and JS you can find the code below.
 
 ### Python
 `pip install jwt`
