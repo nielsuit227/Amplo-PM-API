@@ -7,9 +7,26 @@ Here you find all information necessary to upload data and request predictions/i
 Note that in order for your API's to be online, you need to have completed the steps from https://www.amplo.ch/products/.
 Upon signing the SaaS Agreement, you are provided a `project_id`, `location` and `registry` as well as a fixed number of `private_key`, `device_id` combinations. 
 
+# Retreiving Predictions
+To aqcuire prediction/indicator results, you send an `https` post with a provided `API Key`.
+```
+curl -X POST https://api.amplo.ch/pm/retreive \
+    --header "Authorization: Token {{API Key}}" \
+    --header "content-type: application/json" \
+    --header "cache-control: no-cache" \
+    --data "{'start_date': {{start_date}}, 'end_date': {{end_date}}, 'limit': {{limit}}}
+```
+Parameter | Description
+--- | ---
+`API Key` | Provided API Key, unique for every model
+`start_date` | (optional) If entered, API only returns predictions made after `start_date`, in milliseconds since the Unix epoch, default=None
+`end_date` | (optional) If entered, API only returns predictions made before `end_date`, in milliseconds since the Unix epoch, default=None
+`limit` | (optional) Limits the amount of predictions returned, always picking last, default=15
+
+To create the token, you need your `project_id` and your device's `private_key`. 
 
 # Sending Data
-Your devices or server can send data over a simple `https` posts. 
+Your devices or server can send data over a `https` posts. 
 ```
 curl -X POST https://cloudiotdevice.googleapis.com/v1/projects/{{project_id}}/locations/{{location}}/registries/{{registry}}/devices/{{device_id}}:publishEvent \
     --header "authorization: Bearer {{jwt_token}}" \
@@ -189,6 +206,3 @@ const createJwt = (projectId, privateKeyFile) => {
   return jwt.sign(token, privateKey, {algorithm: 'RS256'});
 };
 ```
-
-## HTTP Post
-Now you can make an HTTP Post 
