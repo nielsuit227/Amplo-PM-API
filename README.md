@@ -25,7 +25,10 @@ Parameter | Description
 `device_id` | The devices unique ID
 `jwt_token` | JSON Web Token, as explained below
 `msg_bytes` | The data which needs to be send, in bytes
+
 To create the token, you need your `project_id` and your device's `private_key`. 
+
+## Message Encoding
 
 ## JSON Web Token
 
