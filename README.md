@@ -2,7 +2,9 @@
 
 
 # Amplo PM API
-Welcome to the official documentation of the Amplo PM API. 
+Welcome to the official documentation of the Amplo AI-based Quality Management API. 
+This documentation explains how to use the Automated Diagnostics and Predictive Maintenance APIs.  
+Both APIs use the same structure. 
 There are two methods of authentication, one designed for IoT devices (JWT) and one for connected services (API Key).
 This page is dedicated for connected IoT devices which authenticate using JSON Web Tokens. 
 Note that in order for your API's to be online, you need to have completed the steps from https://www.amplo.ch/products/.
