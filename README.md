@@ -21,7 +21,7 @@ This endpoint uses the latest version of all models.
 #### Request Attributes
 Parameter | Description
 ---|---
-group | Client identifier, as specified in the Amplo Portal
+client | Client identifier, as specified in the Amplo Portal
 device | Device identifier, as specified in the Amplo Portal
 
 
@@ -29,14 +29,14 @@ device | Device identifier, as specified in the Amplo Portal
 
 CLI: 
 ```
-curl -H "content-type: multipart/form-data" -F group=Amplo -F device=dev01 -F files=@example_log.csv https://api.amplo.ch/getDiagnosis/
+curl -H "content-type: multipart/form-data" -F client=Amplo -F device=dev01 -F files=@example_log.csv https://api.amplo.ch/getDiagnosis/
 ---
 {"example_log":{"model_1":91,"model_2":22,"model_3":3}}
 ```
 JS: 
 ```javascript
 let formData = new FormData();
-formData.append('group', 'amplo');
+formData.append('client', 'amplo');
 formData.append('device', 'dev01');
 formData.append('files', example_log);
 axios.post(
