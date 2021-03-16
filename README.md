@@ -11,7 +11,7 @@ Our APIs accept `application/json` and `multipart/form-data` request data, retur
 All our endpoints use the `base url: https://api.amplo.ch`.
 
 ### Automated Diagnostics
-Endpoint: `POST /getDiagnosis/`
+Endpoint: `POST /diagnose/`
 
 This endpoint analyses one or multiple log files for all `deployed` Automated Diagnostics models. 
 Logs are attached as `multipart/form-data` and should be listed under `files`. 
@@ -29,7 +29,7 @@ device | Device identifier, as specified in the Amplo Portal
 
 CLI: 
 ```
-curl -H "content-type: multipart/form-data" -F client=Amplo -F device=dev01 -F files=@example_log.csv https://api.amplo.ch/getDiagnosis/
+curl -H "content-type: multipart/form-data" -F client=Amplo -F device=dev01 -F files=@example_log.csv https://api.amplo.ch/diagnose/
 ---
 {"example_log":{"model_1":91,"model_2":22,"model_3":3}}
 ```
@@ -40,7 +40,7 @@ formData.append('client', 'amplo');
 formData.append('device', 'dev01');
 formData.append('files', example_log);
 axios.post(
-    'https://api.amplo.ch/getDiagnosis', 
+    'https://api.amplo.ch/diagnose/', 
     formData, 
     {headers: {"Content-Type": 'multipart/form-data'}}
 ).then(response => {
