@@ -1,10 +1,11 @@
 ![amplo-logo](https://amplo.ch/wp-content/uploads/2020/07/28july-normal-1.png)
 
 
-# Amplo Quality Management APIs
+# Amplo AI Management Portal
 ## Overview
-Welcome to the official documentation of the Amplo AI-based Quality Management API.
-Our APIs rely on Machine Learning models which need to be `'deployed'` on the Amplo Portal (https://portal.amplo.ch).
+Welcome to the official documentation of the Amplo AI  Management Portal.
+This documentation is solely focused on the API integration of the API which are managed on the portal. 
+The APIs rely on deployed Machine Learning models (as per the AI Management Portal).
 Our APIs accept `application/json` and `multipart/form-data` request data, return `json-encoded` responses and use standard `http` response codes.
 
 ## Endpoints
